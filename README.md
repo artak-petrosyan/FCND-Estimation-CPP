@@ -83,7 +83,7 @@ PASS: ABS(Quad.IMU.AX-0.000000) was less than MeasuredStdDev_AccelXY for 67% of 
 
 #### Step 2: Attitude Estimation ####
 Class member function :```void QuadEstimatorEKF::UpdateFromIMU(V3F accel, V3F gyro)```
-Changed provided Linear Complimentary Filter code to Nonlinear by using complimentary ```Quaternion<float>``` class methods.
+Changed provided Linear Complementary Filter code to Nonlinear by using ```Quaternion<float>``` class methods.
 
 <p align="center">
 <img src="images/att_est.gif" width="500"/>
@@ -91,9 +91,13 @@ Changed provided Linear Complimentary Filter code to Nonlinear by using complime
 
 #### Step 3: Prediction Step ####
 Class member functions :
+
 ```MatrixXf QuadEstimatorEKF::GetRbgPrime(float roll, float pitch, float yaw)```
+
 Implemented R prime matrix calculation
+
 ```void QuadEstimatorEKF::Predict(float dt, V3F accel, V3F gyro)```
+
 Implemented predict step of the EKF by calculating Jacobian.
 
 <p align="center">
@@ -107,6 +111,7 @@ Implemented predict step of the EKF by calculating Jacobian.
 #### Step 4: Magnetometer Update ####
 Class member functions :
 ```void QuadEstimatorEKF::UpdateFromMag(float magYaw)```
+
 Implemented state update with Magnetometer measurement.
 
 ```
@@ -135,3 +140,4 @@ PASS: ABS(Quad.Est.E.Pos) was less than 1.000000 for at least 20.000000 seconds
 
 #### Step 6: Adding Your Controller ####
 Just merged code from my previous [3D Control](https://github.com/artak-petrosyan/FCND-Controls-CPP) project code.
+Github: [https://github.com/artak-petrosyan/FCND-Controls-CPP](https://github.com/artak-petrosyan/FCND-Controls-CPP)
